@@ -18,8 +18,8 @@ $ source /opt/ros/humble/setup.bash
 # ros2_wsは各自のROS 2のワークスペース名に変更してください
 $ mkdir -p ~/ros2_ws/src
 $ cd ~/ros2_ws/src
-$ git clone -b ros2 https://github.com/rt-net/crane_x7_ros.git
-$ git clone -b ros2 https://github.com/rt-net/crane_x7_description.git
+$ git clone -b humble https://github.com/rt-net/crane_x7_ros.git
+$ git clone -b humble https://github.com/rt-net/crane_x7_description.git
 
 # 依存パッケージのインストール
 $ rosdep install -r -y -i --from-paths .
