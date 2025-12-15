@@ -13,6 +13,7 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(angles REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(image_geometry REQUIRED)
@@ -20,6 +21,7 @@ find_package(moveit_ros_planning_interface REQUIRED)
 find_package(OpenCV REQUIRED COMPONENTS core)
 find_package(rclcpp REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
+find_package(tf2_ros REQUIRED)
 
 # ここから
 add_executable(blue_color_detection
@@ -29,10 +31,9 @@ ament_target_dependencies(blue_color_detection
     cv_bridge
     geometry_msgs
     image_geometry
-    moveit_ros_planning_interface
     OpenCV
     rclcpp
-    tf2_geometry_msgs
+    tf2_ros
 )
 # ここまででコードに必要なものを記述
 add_executable(yellow_color_detection
@@ -42,20 +43,17 @@ ament_target_dependencies(yellow_color_detection
     cv_bridge
     geometry_msgs
     image_geometry
-    moveit_ros_planning_interface
     OpenCV
     rclcpp
-    tf2_geometry_msgs
+    tf2_ros
 )
 add_executable(plate_pick_and_move
   src/plate_pick_and_move.cpp
 )
 ament_target_dependencies(plate_pick_and_move
-    cv_bridge
+    angles
     geometry_msgs
-    image_geometry
     moveit_ros_planning_interface
-    OpenCV
     rclcpp
     tf2_geometry_msgs
 )
@@ -63,25 +61,23 @@ add_executable(plate_blue_pick_and_move_tf
   src/plate_blue_pick_and_move_tf.cpp
 )
 ament_target_dependencies(plate_blue_pick_and_move_tf
-    cv_bridge
+    angles
     geometry_msgs
-    image_geometry
     moveit_ros_planning_interface
-    OpenCV
     rclcpp
     tf2_geometry_msgs
+    tf2_ros
 )
 add_executable(plate_yellow_pick_and_move_tf
   src/plate_yellow_pick_and_move_tf.cpp
 )
 ament_target_dependencies(plate_yellow_pick_and_move_tf
-    cv_bridge
+    angles
     geometry_msgs
-    image_geometry
     moveit_ros_planning_interface
-    OpenCV
     rclcpp
     tf2_geometry_msgs
+    tf2_ros
 )
 
 # src下のソースコードはTARGETSで
